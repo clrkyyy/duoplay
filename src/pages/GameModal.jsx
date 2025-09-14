@@ -1,30 +1,23 @@
 import React from "react";
 
 const GameModal = ({ game, onClose }) => {
-  if (!game) return null; // no game selected = no modal
-
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-      <div className="bg-gray-900 rounded-lg p-4 relative max-w-5xl w-full">
-        {/* Close button */}
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+      <div className="bg-gray-900 rounded-lg shadow-lg w-[90%] h-[80%] relative">
         <button
-          className="absolute top-2 right-2 text-pink-400 hover:text-cyan-400"
           onClick={onClose}
+          className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded"
         >
-          ✖
+          ✖ Close
         </button>
-
-        {/* Game title */}
-        <h2 className="text-2xl text-cyan-400 mb-4">{game.title}</h2>
-
-        {/* Embedded iframe game */}
         <iframe
-          src={game.url}
-          width="900"
-          height="560"
-          frameBorder="0"
+          src={game.embedUrl}
+          width="100%"
+          height="100%"
           scrolling="no"
-          className="mx-auto rounded-lg shadow-lg"
+          frameBorder="0"
+          allowFullScreen
+          title={game.title}
         />
       </div>
     </div>

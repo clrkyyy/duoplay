@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
+    "framer-motion": "^12.23.12",
     "morgan": "^1.10.1",
     "node-fetch": "^3.3.2",
     "postcss": "^8.5.6",
