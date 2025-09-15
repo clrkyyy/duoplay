@@ -1,0 +1,86 @@
+// src/data/GamesData.js
+
+const games = [
+  {
+    id: 1,
+    title: "Italian Brainrot Bike Rush",
+    url: "https://html5.gamedistribution.com/c23f50871019481f99d1ce3d56571dfd/?gd_sdk_referrer_url=https://gamedistribution.com/games/italian-brainrot-bike-rush/",
+    genre: "Racing • Action • Adventure",
+    thumbnail: "https://img.gamedistribution.com/c23f50871019481f99d1ce3d56571dfd-512x512.jpg",
+    description: "Race your way through chaotic tracks filled with obstacles. Keep your balance and prove your skills in this fast-paced bike rush game.",
+  },
+  {
+    id: 2,
+    title: "Stickman Kombat 2D",
+    url: "https://html5.gamedistribution.com/6d3928f393774157a7aed692f08ee011/?gd_sdk_referrer_url=https://gamedistribution.com/games/stickman-kombat-2d",
+    genre: "Fighting • Platformer • Tournament • 2 Players • Stickman",
+    thumbnail: "https://img.gamedistribution.com/6d3928f393774157a7aed692f08ee011-512x512.jpg",
+    description: "Adrenaline unleashed! Rage, speed, and chaos collide in explosive 2D battles. Feel every hit — and dive into the madness. Are you ready?",
+  },
+  {
+    id: 3,
+    title: "The Walking Deadblocks",
+    url: "https://html5.gamedistribution.com/3913bd721fb54b279105524985be0a76/?gd_sdk_referrer_url=https://gamedistribution.com/games/still-2-minutes",
+    genre: "Apocalypse • Survival • Zombie • Co-op • Singleplayer",
+    thumbnail: "https://img.gamedistribution.com/3913bd721fb54b279105524985be0a76-512x512.jpeg",
+    description: "A fast-paced, cooperative survival game where players battle relentless waves of zombies across dynamic day-night cycles.",
+  },
+  {
+    id: 4,
+    title: "Tic Tac Toe Master",
+    url: "https://html5.gamedistribution.com/28ca14de47374a79adfb2a64460f6219/?gd_sdk_referrer_url=https://gamedistribution.com/games/tic-tac-toe-master",
+    genre: "Logic • Skill • TicTacToe • Co-op",
+    thumbnail: "https://img.gamedistribution.com/28ca14de47374a79adfb2a64460f6219-512x512.jpeg",
+    description: "Play against the computer or a friend in this modern version of Tic Tac Toe. Choose from grid sizes ranging from 3x3 up to 8x8.",
+  },
+  {
+    id: 5,
+    title: "Red and Blue Stickman Huggy 2",
+    url: "https://html5.gamedistribution.com/a1638be804bd44f1989f3ce4a4829cc3/?gd_sdk_referrer_url=https://gamedistribution.com/games/red-and-blue-stickman-huggy-2",
+    genre: "1 Player • 2D • 2 Players • Co-op • Arcade • Multiplayer • Singleplayer",
+    thumbnail: "https://img.gamedistribution.com/a1638be804bd44f1989f3ce4a4829cc3-512x512.jpeg",
+    description: "Help red and blue huggy escape the dark temple together. Collect diamonds, avoid water traps, and reach the door safely.",
+  },
+  {
+    id: 6,
+    title: "Party Stickman 4 Player",
+    url: "https://html5.gamedistribution.com/331bc3a8c0484f5c8dbf810f5f6475fb/?gd_sdk_referrer_url=https://gamedistribution.com/games/party-stickman-4-player",
+    genre: "1 Player • 2 Players • 3 Players • Co-op • Arcade • Multiplayer • Singleplayer",
+    thumbnail: "https://img.gamedistribution.com/331bc3a8c0484f5c8dbf810f5f6475fb-512x512.jpeg",
+    description: "Compete with up to 4 friends through 15 challenging levels. Be careful — if one dies, the whole team restarts!",
+  },
+  {
+    id: 7,
+    title: "Pro Billiards",
+    url: "https://html5.gamedistribution.com/f0b0978df61940248233d92401ced54b/?gd_sdk_referrer_url=https://gamedistribution.com/games/pro-billiards",
+    genre: "Aim • Pool • Skill • Sport • Snooker • 8 Ball • Billiard • Co-op",
+    thumbnail: "https://img.gamedistribution.com/f0b0978df61940248233d92401ced54b-512x512.jpeg",
+    description: "A modern pool game with both single-player timer mode and 2-player local mode. Play 8-ball with realistic physics!",
+  },
+  {
+    id: 8,
+    title: "Hug and Kis City",
+    url: "https://html5.gamedistribution.com/4c28fffdfc164531950d7cf60f2c8bb4/?gd_sdk_referrer_url=https://gamedistribution.com/games/hug-and-kis-city",
+    genre: "1 Player • 2D • 2 Players • Co-op • Arcade • Multiplayer • Singleplayer",
+    thumbnail: "https://img.gamedistribution.com/4c28fffdfc164531950d7cf60f2c8bb4-512x512.jpeg",
+    description: "Collect gold, watch out for zombies, and help Hug and Kis reach the door safely in this fun adventure.",
+  },
+  {
+    id: 9,
+    title: "Hug and Kis Station Escape",
+    url: "https://html5.gamedistribution.com/c4a46c27d10341848408e3c2a2fc88eb/?gd_sdk_referrer_url=https://gamedistribution.com/games/hug-and-kis-station-escape",
+    genre: "1 Player • 2D • Alien • 2 Players • Co-op • Arcade • Multiplayer",
+    thumbnail: "https://img.gamedistribution.com/c4a46c27d10341848408e3c2a2fc88eb-512x512.jpeg",
+    description: "Help Hug and Kis escape a space station. Collect all the diamonds and unlock the door to safety.",
+  },
+  {
+    id: 10,
+    title: "Noob vs Pro Squid Challenge",
+    url: "https://html5.gamedistribution.com/6ecb3e8cb64546e395e53fd41c215bd8/?gd_sdk_referrer_url=https://gamedistribution.com/games/noob-vs-pro-squid-challenge",
+    genre: "2D • 2 Players • Co-op • Multiplayer",
+    thumbnail: "https://img.gamedistribution.com/6ecb3e8cb64546e395e53fd41c215bd8-512x512.jpeg",
+    description: "Face multiple squid game-inspired challenges. Team up or compete in red light/green light, tug of war, and more.",
+  },
+];
+
+export default games;

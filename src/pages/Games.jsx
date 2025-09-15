@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import games from "../data/gamesData";
 
 const Games = () => {
-  const [isGameLoading, setIsGameLoading] = useState(true);
+  const [filter, setFilter] = useState("all");
+  const [selectedGame, setSelectedGame] = useState(null);
+
+  // Filter games by genre tags
+  const filteredGames = games.filter((game) => {
+    if (filter === "all") return true;
+    return game.genre.toLowerCase().includes(filter.toLowerCase());
+  });
 
   return (
     <motion.div
@@ -22,121 +30,81 @@ const Games = () => {
         >
           <h1 className="text-5xl md:text-6xl font-black mb-4">
             <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-              🎮 Gaming Hub
+              🎮 Game Hub
             </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Immerse yourself in premium gaming experiences, 
-            optimized for instant play and maximum fun.
+            Browse fun and interactive games. Filter by type or players and click to play instantly.
           </p>
         </motion.div>
 
-        {/* Game Container */}
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="relative"
-        >
-          <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-600/30 shadow-2xl">
-            {/* Game Stats */}
-            <div className="flex justify-between items-center mb-6">
-              <div className="flex space-x-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-cyan-400">1.2K</div>
-                  <div className="text-sm text-gray-400">Players Online</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400">4.8★</div>
-                  <div className="text-sm text-gray-400">Rating</div>
-                </div>
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg text-white font-medium"
-              >
-                🔄 New Game
-              </motion.button>
-            </div>
-
-            {/* Game Frame */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {["all", "2 players", "co-op", "multiplayer", ].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-lg font-medium transition ${
+                filter === cat
+                  ? "bg-cyan-500 text-white"
+                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+              }`}
             >
-              {isGameLoading && (
-                <motion.div
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-gray-900 flex items-center justify-center z-10"
-                >
-                  <div className="text-center">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                      className="w-12 h-12 border-4 border-cyan-400 border-t-transparent rounded-full mx-auto mb-4"
-                    />
-                    <p className="text-cyan-400 font-medium">Loading Game...</p>
-                  </div>
-                </motion.div>
-              )}
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Game Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredGames.map((game) => (
+            <motion.div
+              key={game.id}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => setSelectedGame(game)}
+              className="cursor-pointer bg-gray-800/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700 shadow-lg"
+            >
+              <img
+                src={game.thumbnail || "/placeholder.jpg"}
+                alt={game.title}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-cyan-400">{game.title}</h3>
+                <p className="text-sm text-gray-300 line-clamp-3">{game.description}</p>
+                <p className="text-xs text-purple-400 mt-2">{game.genre}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Modal */}
+        {selectedGame && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <div className="relative bg-gray-900 rounded-xl w-11/12 max-w-4xl shadow-xl overflow-hidden">
+              <button
+                onClick={() => setSelectedGame(null)}
+                className="absolute top-3 right-3 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
+              >
+                ✕ Close
+              </button>
               <iframe
-                src="https://html5.gamedistribution.com/c23f50871019481f99d1ce3d56571dfd/?gd_sdk_referrer_url=https://gamedistribution.com/games/italian-brainrot-bike-rush/"
+                src={selectedGame.url}
                 width="100%"
                 height="600"
-                scrolling="no"
                 frameBorder="0"
                 allowFullScreen
-                className="rounded-2xl bg-black"
-                title="Italian Brainrot Bike Rush"
-                onLoad={() => setIsGameLoading(false)}
+                className="rounded-b-xl"
+                title={selectedGame.title}
               />
-            </motion.div>
-
-            {/* Game Info */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="mt-6 flex justify-between items-center"
-            >
-              <div>
-                <h3 className="text-xl font-bold text-white">Italian Brainrot Bike Rush</h3>
-                <p className="text-gray-400">Racing • Action • Adventure</p>
+              <div className="p-4">
+                <h2 className="text-2xl font-bold text-white">{selectedGame.title}</h2>
+                <p className="text-gray-300 mt-2">{selectedGame.description}</p>
+                <p className="text-sm text-cyan-400 mt-2">🎯 {selectedGame.genre}</p>
               </div>
-              <div className="flex space-x-2">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
-                >
-                  ❤️
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
-                >
-                  📤
-                </motion.button>
-              </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
-
-        {/* Powered by */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="text-center mt-8 text-gray-500"
-        >
-          Powered by{" "}
-          <span className="text-cyan-400 font-medium">GameDistribution</span>
-        </motion.p>
+        )}
       </div>
     </motion.div>
   );

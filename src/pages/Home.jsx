@@ -1,7 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -10,19 +13,19 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-black relative overflow-hidden"
     >
-      {/* Background Animation */}
+      {/* Floating background orbs */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
             initial={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+              x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1200),
+              y: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 800),
             }}
             animate={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+              x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1200),
+              y: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 800),
             }}
             transition={{
               duration: Math.random() * 10 + 10,
@@ -33,6 +36,7 @@ const Home = () => {
         ))}
       </div>
 
+      {/* Hero Section */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -50,15 +54,16 @@ const Home = () => {
               DuoPlay
             </span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Experience gaming like never before. Play instantly, connect globally, 
-            and discover endless entertainment.
+            DuoPlay is a hub of fun and casual games made for{" "}
+            <span className="text-cyan-400 font-semibold">couples and friends</span>.  
+            Play instantly, no downloads needed — whether you’re together or apart.
           </motion.p>
 
           <motion.div
@@ -68,6 +73,7 @@ const Home = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.button
+              onClick={() => navigate("/games")}
               whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(6, 182, 212, 0.3)" }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold text-lg shadow-lg transition-all duration-300"
@@ -75,6 +81,7 @@ const Home = () => {
               🚀 Start Playing
             </motion.button>
             <motion.button
+              onClick={() => navigate("/about")}
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border-2 border-gray-600 rounded-full text-white font-semibold text-lg hover:border-cyan-400 transition-all duration-300"
@@ -92,9 +99,9 @@ const Home = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-4xl"
         >
           {[
-            { icon: "⚡", title: "Instant Play", desc: "No downloads required" },
-            { icon: "🌐", title: "Global Gaming", desc: "Connect with players worldwide" },
-            { icon: "🎯", title: "Premium Quality", desc: "Curated gaming experiences" }
+            { icon: "⚡", title: "Instant Play", desc: "No downloads required — just click and play." },
+            { icon: "👫", title: "Made for Two", desc: "Perfect for couples and friends who want fun games together." },
+            { icon: "💻", title: "Built by a Dev", desc: "Created by a frontend developer seeking opportunities." },
           ].map((feature, i) => (
             <motion.div
               key={i}
