@@ -81,6 +81,31 @@ const games = [
     thumbnail: "https://img.gamedistribution.com/6ecb3e8cb64546e395e53fd41c215bd8-512x512.jpeg",
     description: "Face multiple squid game-inspired challenges. Team up or compete in red light/green light, tug of war, and more.",
   },
+  {
+    id: 11,
+    title: "Minicraft Chef Cake Wars",
+    url: "https://html5.gamedistribution.com/81bd3a3dac2a4fce968ee2d8dc648bbe/?gd_sdk_referrer_url=https://gamedistribution.com/games/minicraft-chef-cake-wars/",
+    genre: "2D • 2 Players • Co-op • Multiplayer",
+    thumbnail: "https://img.gamedistribution.com/81bd3a3dac2a4fce968ee2d8dc648bbe-512x512.jpg",
+    description: "Hey player, would you like to have a cooking competition with your friend? In this cooking contest, you must beat your friend. Collect all the cooking materials as quickly as possible. We need to gather the cake ingredients floating in balloons in the air. The player who collects the most ingredients the fastest wins the game. To bake the cake, collect everything: salt, flour, and milk. Gather all the ingredients and win the game!",
+  },
+  {
+    id: 12,
+    title: "Burger Cafe - Cooking Games",
+    url: "https://html5.gamedistribution.com/53e7add4f6a74aeb90652e008b35e3b4/?gd_sdk_referrer_url=https://gamedistribution.com/games/burger-cafe-cooking-games-for-kids/",
+    genre: "2D • 2 Players • Co-op • Multiplayer",
+    thumbnail: "https://img.gamedistribution.com/53e7add4f6a74aeb90652e008b35e3b4-512x512.jpeg",
+    description: "Learn to cook burgers and open your own restaurant! Choose a recipe, gather fresh ingredients, chop veggies, prepare signature sauces, bake buns to perfection, and fry juicy patties. Once everything’s ready, assemble your burger masterpiece, package it, and serve happy customers. Customize your restaurant’s look and unlock new recipes as you rise to become a top chef in town. Dive into the burger-making experience and build the best burger joint around!",
+  },
+    {
+    id: 13,
+    title: "2 Player Red Blue Pirates",
+    url: "https://html5.gamedistribution.com/75c92df4f8114fbb9f2251c0fa71e164/?gd_sdk_referrer_url=https://gamedistribution.com/games/2-player-red-blue-pirates/",
+    genre: "2D • 2 Players • Co-op • Multiplayer",
+    thumbnail: "https://img.gamedistribution.com/75c92df4f8114fbb9f2251c0fa71e164-512x512.jpeg",
+    description: "The cute and yet powerful twin pirate has to survive. red and blue pirates need protection from enemies they need to stay strong. They need to collect 6 bombs and reach the door. collect the bombs and reach the door.",
+  },
+
 ];
 
 export default games;

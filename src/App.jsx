@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import About from "./pages/About";
+import CouplesWall from "./pages/CouplesWall";
 
 function AppContent() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function AppContent() {
             <Route path="/" element={<Home />} />
             <Route path="/games" element={<Games />} />
             <Route path="/about" element={<About />} />
+            <Route path="/couples-wall" element={<CouplesWall />} />
           </Routes>
         </motion.main>
       </AnimatePresence>

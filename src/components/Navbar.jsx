@@ -1,11 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ import
 
 const Navbar = ({ currentPath, setCurrentPath }) => {
+  const navigate = useNavigate(); // ✅ create navigator
+
   const navItems = [
     { path: "/", label: "Home", icon: "🏠" },
     { path: "/games", label: "Games", icon: "🎮" },
-    { path: "/about", label: "About", icon: "ℹ️" }
+    { path: "/about", label: "About", icon: "ℹ️" },
+    { path: "/couples-wall", label: "Couples Wall", icon: "💖" },
   ];
 
   return (
@@ -21,7 +25,11 @@ const Navbar = ({ currentPath, setCurrentPath }) => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 cursor-pointer"
+            onClick={() => {
+              setCurrentPath("/");
+              navigate("/");
+            }}
           >
             <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">DP</span>
@@ -36,7 +44,10 @@ const Navbar = ({ currentPath, setCurrentPath }) => {
             {navItems.map((item) => (
               <motion.button
                 key={item.path}
-                onClick={() => setCurrentPath(item.path)}
+                onClick={() => {
+                  setCurrentPath(item.path);
+                  navigate(item.path); // ✅ navigate
+                }}
                 className={`relative flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors duration-200 ${
                   currentPath === item.path
                     ? "text-cyan-400"
