@@ -1,9 +1,7 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
-// ✅ Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDhhFWFpaGY9sDk4yrzilk5eld54Fi-kDk",
   authDomain: "duoplay-e92c1.firebaseapp.com",
@@ -14,11 +12,7 @@ const firebaseConfig = {
   measurementId: "G-H80WKCCE5V"
 };
 
-// ✅ Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// (Optional) Analytics — works only in browsers
-const analytics = getAnalytics(app);
-
-// ✅ Initialize Firestore DB
+// ✅ this is the Firestore export
 export const db = getFirestore(app);

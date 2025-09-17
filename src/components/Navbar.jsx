@@ -9,7 +9,7 @@ const Navbar = ({ currentPath, setCurrentPath }) => {
     { path: "/", label: "Home", icon: "🏠" },
     { path: "/games", label: "Games", icon: "🎮" },
     { path: "/about", label: "About", icon: "ℹ️" },
-    { path: "/couples-wall", label: "Couples Wall", icon: "💖" },
+    { path: "/couples-wall", label: "Freedom Wall", icon: "💖" },
   ];
 
   return (
