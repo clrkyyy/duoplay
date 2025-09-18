@@ -1,6 +1,8 @@
+// src/pages/Games.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import games from "../data/gamesData";
+import GameModal from "../components/GameModal";
 
 const Games = () => {
   const [filter, setFilter] = useState("all");
@@ -40,7 +42,7 @@ const Games = () => {
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {["all", "2 players", "co-op", "multiplayer", ].map((cat) => (
+          {["all", "2 players", "co-op", "multiplayer"].map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
@@ -79,32 +81,11 @@ const Games = () => {
         </div>
 
         {/* Modal */}
-        {selectedGame && (
-          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-            <div className="relative bg-gray-900 rounded-xl w-11/12 max-w-4xl shadow-xl overflow-hidden">
-              <button
-                onClick={() => setSelectedGame(null)}
-                className="absolute top-3 right-3 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
-              >
-                ✕ Close
-              </button>
-              <iframe
-                src={selectedGame.url}
-                width="100%"
-                height="600"
-                frameBorder="0"
-                allowFullScreen
-                className="rounded-b-xl"
-                title={selectedGame.title}
-              />
-              <div className="p-4">
-                <h2 className="text-2xl font-bold text-white">{selectedGame.title}</h2>
-                <p className="text-gray-300 mt-2">{selectedGame.description}</p>
-                <p className="text-sm text-cyan-400 mt-2">🎯 {selectedGame.genre}</p>
-              </div>
-            </div>
-          </div>
-        )}
+        <GameModal
+          isOpen={!!selectedGame}
+          game={selectedGame}
+          onClose={() => setSelectedGame(null)}
+        />
       </div>
     </motion.div>
   );
